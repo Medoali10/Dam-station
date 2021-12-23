@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
     "%"
   ];
   late List productImages = [
-    0 ,
+    0,
     0,
     0,
   ];
@@ -92,8 +92,8 @@ class _MyHomePageState extends State<MyHomePage> {
     databaseRef.onValue.listen((event) {
       if(event.snapshot.exists){
         productImages[0] = event.snapshot.value["vin"];
-        productImages[1] = event.snapshot.value["vin"] * 1; //volt * current
-        productImages[2] = event.snapshot.value["vin"] * 1 / event.snapshot.value['flowRate'] * 0.11433333333 * 2;
+        productImages[1] = event.snapshot.value["vin"] * 0.1; //volt * current
+        productImages[2] = event.snapshot.value["vin"] * 0.1 / event.snapshot.value['flowRate'] * 0.11433333333 * 2;
         history.add({
           "time": DateFormat('yyyy-MM-dd \n kk:mm:ss')
             .format(DateTime.now())
